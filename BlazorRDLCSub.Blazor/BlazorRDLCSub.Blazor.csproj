@@ -4,4 +4,44 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\Reports\rpEmpleadoDetalles.rdlc" />
+    <Content Remove="wwwroot\Reports\rpEmpleados.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Reports\rpEmpleadoDetalles.rdlc" />
+    <None Include="wwwroot\Reports\rpEmpleados.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ReportDataSet\dsEmpleado.Designer.cs">
+      <DependentUpon>dsEmpleado.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="ReportDataSet\dsEmpleadoDetalle.Designer.cs">
+      <DependentUpon>dsEmpleadoDetalle.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ReportDataSet\dsEmpleado.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsEmpleado.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Update="ReportDataSet\dsEmpleadoDetalle.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsEmpleadoDetalle.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>
