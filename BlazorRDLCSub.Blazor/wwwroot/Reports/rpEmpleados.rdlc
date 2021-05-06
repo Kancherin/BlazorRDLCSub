@@ -55,7 +55,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.09292cm</Width>
+                  <Width>6.27604cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>4.93417cm</Width>
@@ -292,8 +292,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FechaInicio.Value</Value>
-                                  <Style />
+                                  <Value>=CDate(Fields!FechaInicio.Value)</Value>
+                                  <Style>
+                                    <Format>dd/MM/yyyy</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -311,6 +313,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -369,7 +372,7 @@
             <Top>0.14111cm</Top>
             <Left>0.18521cm</Left>
             <Height>1.8cm</Height>
-            <Width>16.21897cm</Width>
+            <Width>17.40209cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -380,7 +383,7 @@
         <Height>1.02083in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>7.45833in</Width>
       <Page>
         <PageHeader>
           <Height>2.92557cm</Height>
@@ -522,7 +525,7 @@
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
               <Top>0.17639cm</Top>
-              <Left>13.26917cm</Left>
+              <Left>15.80917cm</Left>
               <Height>0.6cm</Height>
               <Width>3.135cm</Width>
               <ZIndex>1</ZIndex>

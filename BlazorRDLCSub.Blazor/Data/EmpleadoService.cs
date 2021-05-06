@@ -16,7 +16,7 @@ namespace BlazorRDLCSub.Blazor.Data
             dt.Columns.Add("Departamento");
             dt.Columns.Add("FechaInicio");
             DataRow dr;
-            for (int i = 1; i < 50; i++)
+            for (int i = 101; i <= 150; i++)
             {
                 dr = dt.NewRow();
                 dr["Id"] = i;
@@ -34,7 +34,7 @@ namespace BlazorRDLCSub.Blazor.Data
             dt.Columns.Add("Id");
             dt.Columns.Add("Detalle");
             DataRow row;
-            for (int i = 1; i < 50; i++)
+            for (int i = 101; i <= 150; i++)
             {
                 for (int j = 1; j < 3; j++)
                 {

@@ -33,6 +33,27 @@ namespace BlazorRDLCSub.Blazor.Controllers
             return EmpleadosReporte("PDF", "pdf", "application/pdf");
         }
 
+        [HttpGet]
+        [Route("ExcelReport")]
+        public IActionResult ExcelReport()
+        {
+            return EmpleadosReporte("EXCELOPENXML", "xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        }
+
+        [HttpGet]
+        [Route("HtmlReport")]
+        public IActionResult HtmlReport()
+        {
+            return EmpleadosReporte("HTML5", "html", "text/html");
+        }
+
+        [HttpGet]
+        [Route("DocXReport")]
+        public IActionResult DocXReport()
+        {
+            return EmpleadosReporte("WORDOPENXML", "docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+        }
+
         private IActionResult EmpleadosReporte(string renderFormat, string extension, string mimeType)
         {
             using var report = new LocalReport();
@@ -81,10 +102,11 @@ namespace BlazorRDLCSub.Blazor.Controllers
         void SubReportProcessing(Object sender, SubreportProcessingEventArgs args)
         {
             int Id = int.Parse(args.Parameters["Id"].Values[0].ToString());
-            var detailData = new DataTable();
-            detailData = empleadoService.GetEmpleadoDetalles().Select("Id=" + Id).CopyToDataTable();
+            var detailsData = new DataTable();
+            detailsData = empleadoService.GetEmpleadoDetalles();
+            var newData = detailsData.Select("Id=" + Id).CopyToDataTable();
 
-            ReportDataSource ds = new ReportDataSource("dsEmpleadoDetalle", detailData);
+            ReportDataSource ds = new ReportDataSource("dsEmpleadoDetalle", newData);
             args.DataSources.Add(ds);
         }
     }
